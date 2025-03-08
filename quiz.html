@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-300 flex justify-center items-center min-h-screen">
+
+    
+
+    <div class="max-w-lg bg-white p-6 shadow-lg rounded-lg text-center">
+        <h1 class="text-3xl font-bold mb-4">Programming Quiz</h1>
+        <button id="exit-btn" class="absolute top-4 right-4 bg-blue-500 text-white p-2 rounded-full shadow-md hover:bg-red-600">
+            Exit Quiz
+        </button>
+
+        
+        <p id="progress" class="text-gray-500">Question <span id="current-question">1</span> of 5</p>
+
+    
+        <p id="question-text" class="text-lg font-semibold mt-4">Loading...</p>
+
+       
+        <div id="options-container" class="mt-4 space-y-3">
+
+        </div>
+
+       
+        <button id="next-btn" class="mt-6 bg-blue-500 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-blue-600 hidden">
+            Next Question
+        </button>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>
