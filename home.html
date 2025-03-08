@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizaro - Home</title>
+    <style>
+      body {
+        font-family: "Serif", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #faf5f5;
+        color: #000000;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      header {
+        background-color: #f3f0f0;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #a93b3b;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #060606;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: #ff6b6b;
+      }
+
+      main {
+        padding: 40px 20px;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: #000000;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        color: #000000;
+      }
+
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .btn-primary {
+        background-color: #ff6b6b;
+        color: #ffffff;
+      }
+
+      .btn-primary:hover {
+        background-color: #ff4c4c;
+        transform: scale(1.05);
+      }
+
+      footer {
+        background-color: #f7ebeb;
+        color: #0f0f0f;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 50px;
+      }
+
+      footer a {
+        color: #ff6b6b;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      footer a:hover {
+        color: #ff4c4c;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <h1>Quizaro</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="result.html">Results</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="leaderboard.html">Leaderboard</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h1>Welcome to Quizaro!</h1>
+        <h3>Interactive Quiz App</h3>
+        <p>
+          Test your knowledge on <strong>Basic Programming</strong> with this
+          fun and interactive quiz!
+        </p>
+        <button class="btn-primary" onclick="startQuiz()">Take a Quiz</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Quizaro. <a href="about.html">Learn more about us</a>.</p>
+    </footer>
+
+    <script>
+      function startQuiz() {
+        const name = prompt("Please enter your name to start the quiz:");
+        if (name) {
+          localStorage.setItem("studentName", name);
+          alert(`Welcome, ${name}! Redirecting to the Quiz Page...`);
+          window.location.href = "quiz.html";
+        } else {
+          alert("Please enter your name before starting the quiz.");
+        }
+      }
+    </script>
+  </body>
+</html>

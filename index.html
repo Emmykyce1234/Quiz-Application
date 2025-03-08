@@ -1,37 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to the Quiz</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizaro - Home</title>
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff; /* White background */
+        color: #000000; /* Black text */
+        line-height: 1.6;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Full viewport height */
+      }
 
-    <div class="text-center bg-white p-8 shadow-lg rounded-lg max-w-lg">
-        <h1 class="text-4xl font-bold text-gray-800">Welcome to the Programming Quiz!</h1>
-        <p class="text-gray-600 mt-4">Test your coding knowledge with 5 randomized multiple-choice questions.</p>
+      /* Header */
+      header {
+        margin-bottom: 20px;
+      }
 
-       
-        <input type="text" id="username" placeholder="Enter your name" class="mt-4 p-2 border rounded w-full text-center" />
+      header h1 {
+        font-size: 3rem;
+        margin: 0;
+        color: #000000; /* Black text */
+      }
 
-    
-        <button onclick="startQuiz()" class="mt-6 bg-blue-500 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-blue-600 transition">
-            Start Quiz
-        </button>
-    </div>
+      header h2 {
+        font-size: 1.5rem;
+        margin: 10px 0;
+        color: #000000; /* Black text */
+      }
+
+      /* Main Content */
+      main {
+        margin-top: 20px;
+      }
+
+      #nameForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+
+      #nameForm input {
+        padding: 10px;
+        border: 2px solid #000000; /* Black border */
+        border-radius: 5px;
+        font-size: 1rem;
+        width: 200px;
+        outline: none;
+      }
+
+      #nameForm input:focus {
+        border-color: #ff6b6b; /* Red border on focus */
+      }
+
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .btn-primary {
+        background-color: #ff6b6b; /* Red background */
+        color: #ffffff; /* White text */
+      }
+
+      .btn-primary:hover {
+        background-color: #ff4c4c; /* Darker red on hover */
+        transform: scale(1.05); /* Slight zoom effect */
+      }
+
+      /* Footer */
+      footer {
+        margin-top: 40px;
+        font-size: 0.9rem;
+        color: #000000; /* Black text */
+      }
+
+      footer a {
+        color: #ff6b6b; /* Red accent for links */
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      footer a:hover {
+        color: #ff4c4c; /* Darker red on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Quizaro</h1>
+      <h2>Interactive Quiz Challenge</h2>
+    </header>
+
+    <main>
+      <form id="nameForm">
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter your name to start"
+          required
+        />
+        <button type="submit" class="btn-primary">Start Quiz</button>
+      </form>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Quiz App. <a href="about.html">Learn more about us</a>.</p>
+    </footer>
 
     <script>
-        function startQuiz() {
-            const username = document.getElementById("username").value.trim();
-            if (username === "") {
-                alert("Please enter your name to start the quiz!");
-                return;
-            }
-            localStorage.setItem("username", username);
-            window.location.href = "quiz.html"; 
-        }
+      // Handle name submission and redirect to the Quiz Page
+      document
+        .getElementById("nameForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission
+          const name = document.getElementById("name").value.trim(); // Get the name
+          if (name) {
+            localStorage.setItem("studentName", name); // Save the name to localStorage
+            alert(`Welcome, ${name}! Redirecting to the Quiz Page...`);
+            window.location.href = "quiz.html"; // Redirect to the Quiz Page
+          } else {
+            alert("Please enter your name before starting the quiz."); // Show an error if the name is empty
+          }
+        });
     </script>
-
-</body>
+  </body>
 </html>
