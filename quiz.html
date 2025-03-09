@@ -3,21 +3,135 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz</title>
+    <title>Quizaro</title>
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #faf5f5;
+        color: #000000;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      header {
+        background-color: #f3f0f0;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #a93b3b;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #060606;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: #ff6b6b;
+      }
+
+      #exit-btn {
+        background-color: #ff6b6b;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      #exit-btn:hover {
+        background-color: #ff4c4c;
+      }
+
+      footer {
+        background-color: #f7ebeb;
+        color: #0f0f0f;
+        text-align: center;
+        padding: 20px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      footer a {
+        color: #ff6b6b;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      footer a:hover {
+        color: #ff4c4c;
+      }
+
+      .quiz-container {
+        margin-top: 80px;
+        margin-bottom: 80px;
+        padding: 20px;
+      }
+    </style>
+
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-gray-300 flex justify-center items-center min-h-screen">
-    <div class="max-w-lg bg-white p-6 shadow-lg rounded-lg text-center">
-      <h1 class="text-3xl font-bold mb-4">Programming Quiz</h1>
-      <button
-        id="exit-btn"
-        class="absolute top-4 right-4 bg-blue-500 text-white p-2 rounded-full shadow-md hover:bg-red-600"
-      >
-        Exit Quiz
-      </button>
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <h1>Quizaro</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="index.html">Quiz</a></li>
+            <li><a href="result.html">Results</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="leaderboard.html">Leaderboard</a></li>
+            <li>
+              <button id="exit-btn">Exit Quiz</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div
+      class="quiz-container max-w-lg bg-white p-6 shadow-lg rounded-lg text-center"
+    >
+      <h1 class="text-3xl font-bold mb-4">Basic Programming Quiz</h1>
 
       <p id="progress" class="text-gray-500">
-        Question <span id="current-question">1</span> of 5
+        Question <span id="current-question">1</span> of 10
       </p>
 
       <p id="question-text" class="text-lg font-semibold mt-4">Loading...</p>
@@ -31,6 +145,10 @@
         Next Question
       </button>
     </div>
+
+    <footer>
+      <p>&copy; 2025 Quizaro. <a href="about.html">Learn more about us</a>.</p>
+    </footer>
 
     <script src="script.js"></script>
   </body>

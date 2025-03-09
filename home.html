@@ -124,7 +124,8 @@
         <nav>
           <ul>
             <li><a href="home.html">Home</a></li>
-            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="index.html">Quiz</a></li>
+
             <li><a href="result.html">Results</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="leaderboard.html">Leaderboard</a></li>
@@ -151,14 +152,7 @@
 
     <script>
       function startQuiz() {
-        const name = prompt("Please enter your name to start the quiz:");
-        if (name) {
-          localStorage.setItem("studentName", name);
-          alert(`Welcome, ${name}! Redirecting to the Quiz Page...`);
-          window.location.href = "quiz.html";
-        } else {
-          alert("Please enter your name before starting the quiz.");
-        }
+        window.location.href = "index.html";
       }
     </script>
   </body>
