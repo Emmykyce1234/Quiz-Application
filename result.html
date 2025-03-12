@@ -9,12 +9,18 @@
   <body class="bg-gray-100 flex justify-center items-center min-h-screen">
     <div class="max-w-lg bg-white p-6 shadow-lg rounded-lg text-center">
       <h1 class="text-3xl font-bold mb-4">Quiz Results</h1>
+      <button
+        id="clear-leaderboard-btn"
+        class="mt-6 bg-red-500 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-red-600"
+      >
+       Clear Leaderboard
+      </button>
 
       <p class="text-lg font-semibold">
         Well done, <span id="player-name"></span>!
       </p>
       <p class="text-lg font-semibold">
-        Your Score: <span id="final-score">0</span>/5
+        Your Score: <span id="final-score">0</span>/10
       </p>
 
       <h2 class="text-xl font-semibold mt-4">Leaderboard</h2>
@@ -66,10 +72,14 @@
         localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
 
         const leaderboardList = document.getElementById("leaderboard");
+        const clearLeaderboardBtn = document.getElementById("clear-leaderboard-btn");
+
+        clearLeaderboardBtn.classList.add("hidden");
+
         leaderboardList.innerHTML = "";
         leaderboard.forEach((entry) => {
           const li = document.createElement("li");
-          li.textContent = `${entry.name}: ${entry.score}/5`;
+          li.textContent = `${entry.name}: ${entry.score}/10`;
           li.classList.add("bg-gray-200", "p-2", "rounded");
           leaderboardList.appendChild(li);
         });
@@ -108,8 +118,17 @@
           .addEventListener("click", function () {
             const leaderboardList = document.getElementById("leaderboard");
             leaderboardList.classList.toggle("hidden");
+            clearLeaderboardBtn.classList.toggle("hidden");
           });
       });
+
+      document.getElementById("clear-leaderboard-btn").addEventListener("click", function () {
+  if (confirm("Are you sure you want to clear the leaderboard?")) {
+    localStorage.removeItem("leaderboard"); // Clear leaderboard data
+    document.getElementById("leaderboard").innerHTML = ""; 
+    alert("Leaderboard cleared!");
+  }
+});
     </script>
   </body>
 </html>

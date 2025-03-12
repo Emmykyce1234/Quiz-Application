@@ -6,13 +6,18 @@
     <title>Quizaro - Quiz</title>
     <style>
       body {
-        font-family: "Arial", sans-serif;
+        font-family: "Serif", sans-serif;
         margin: 0;
         padding: 0;
         background-color: #faf5f5;
         color: #000000;
         line-height: 1.6;
         text-align: center;
+        height:100%;
+        display:flex;
+        flex-direction: column;
+        min-height: 100vh;
+
       }
 
       header {
@@ -58,11 +63,7 @@
         padding: 40px 20px;
         max-width: 800px;
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: calc(100vh - 200px);
+        flex: 1;
       }
 
       #nameForm {
@@ -109,7 +110,7 @@
         color: #0f0f0f;
         text-align: center;
         padding: 20px 0;
-        margin-top: 50px;
+        margin-top: auto;
       }
 
       footer a {
@@ -166,7 +167,7 @@
           event.preventDefault();
           const name = document.getElementById("name").value.trim();
           if (name) {
-            localStorage.setItem("studentName", name);
+            localStorage.setItem("username", name);
             window.location.href = "quiz.html";
           } else {
             alert("Please enter your name before starting the quiz.");

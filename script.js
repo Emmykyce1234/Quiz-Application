@@ -42,9 +42,9 @@ const quizData = [
     answer: "font-weight",
   },
   {
-    question: "Which HTML element is used to define an unordered list?",
-    options: ["<ul>", "<ol>", "<li>", "<list>"],
-    answer: "<ul>",
+    question: "Which attribute is used to specify that an input field must be filled out before submitting the form?",
+    options: ["validate", "required", "mandatory", "mustfill"],
+    answer: "required",
   },
   {
     question: "Which keyword is used to declare a function in JavaScript?",
