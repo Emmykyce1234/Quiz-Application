@@ -4,63 +4,68 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quizaro</title>
-
     <style>
       body {
-        font-family: "Poppins", sans-serif;
+        font-family: "Serif", sans-serif;
         margin: 0;
         padding: 0;
         background-color: #faf5f5;
         color: #000000;
         line-height: 1.6;
         text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
       }
 
-      header {
-        background-color: #f3f0f0;
+      h1 {
+        font-size: 3rem !important;
+        margin-bottom: 20px !important;
+        color: black !important;
+      }
+
+      h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 20px !important;
+        color: black !important;
+      }
+
+      #nameform {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+
+      #nameform input {
         padding: 15px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        position: fixed;
-        top: 0;
+        border: 2px solid #000000;
+        border-radius: 8px;
+        font-size: 1.2rem;
         width: 100%;
-        z-index: 1000;
+        max-width: 350px;
+        outline: none;
       }
 
-      .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
+      #nameform input:focus {
+        border-color: #ff6b6b;
       }
 
-      .logo h1 {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #a93b3b;
+      .btn-primary {
+        background-color: #ff6b6b;
+        color: #ffffff;
       }
 
-      nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        gap: 20px;
-        align-items: center;
-      }
-
-      nav ul li a {
-        text-decoration: none;
-        color: #060606;
-        font-weight: bold;
-        transition: color 0.3s ease;
-      }
-
-      nav ul li a:hover {
-        color: #ff6b6b;
+      .btn-primary:hover {
+        background-color: #ff4c4c;
+        transform: scale(1.05);
       }
 
       #exit-btn {
+        position: absolute;
+        top: 16px;
+        right: 20px;
         background-color: #ff6b6b;
         color: white;
         padding: 8px 16px;
@@ -72,83 +77,58 @@
       }
 
       #exit-btn:hover {
-        background-color: #ff4c4c;
-      }
-
-      footer {
-        background-color: #f7ebeb;
-        color: #0f0f0f;
-        text-align: center;
-        padding: 20px 0;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-      }
-
-      footer a {
-        color: #ff6b6b;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      footer a:hover {
-        color: #ff4c4c;
+        background-color: #771414;
       }
 
       .quiz-container {
+        display: none;
         margin-top: 80px;
         margin-bottom: 80px;
         padding: 20px;
       }
     </style>
-
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-gray-300 flex justify-center items-center min-h-screen">
     <header>
-      <div class="navbar">
-        <div class="logo">
-          <h1>Quizaro</h1>
-        </div>
-        <nav>
-          <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="index.html">Quiz</a></li>
-            <li><a href="result.html">Results</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="leaderboard.html">Leaderboard</a></li>
-            <li>
-              <button id="exit-btn">Exit Quiz</button>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <button id="exit-btn">Exit Quiz</button>
     </header>
 
-    <div
-      class="quiz-container max-w-lg bg-white p-6 shadow-lg rounded-lg text-center"
-    >
+    <section id="homeSection">
+      <h1>Quizaro</h1>
+      <h2>Basic Programming Quiz</h2>
+      <form id="nameform">
+        <input type="text" id="name" placeholder="Enter your name to start" />
+        <button type="submit" class="btn-primary px-4 py-2 rounded-md">Start Quiz</button>
+      </form>
+    </section>
+
+    <div id="quizContainer" class="quiz-container max-w-lg bg-white p-6 shadow-lg rounded-lg text-center">
       <h1 class="text-3xl font-bold mb-4">Basic Programming Quiz</h1>
-
-      <p id="progress" class="text-gray-500">
-        Question <span id="current-question">1</span> of 10
-      </p>
-
+      <p id="progress" class="text-gray-500">Question <span id="current-question">1</span> of 10</p>
       <p id="question-text" class="text-lg font-semibold mt-4">Loading...</p>
-
       <div id="options-container" class="mt-4 space-y-3"></div>
-
-      <button
-        id="next-btn"
-        class="mt-6 bg-blue-500 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-blue-600 hidden"
-      >
-        Next Question
-      </button>
+      <button id="next-btn" class="mt-6 bg-blue-500 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-blue-600 hidden">Next Question</button>
     </div>
 
-    <footer>
-      <p>&copy; 2025 Quizaro. <a href="about.html">Learn more about us</a>.</p>
-    </footer>
+    <script>
+      document.getElementById("nameform").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        if (name) {
+          localStorage.setItem("username", name);
+          document.getElementById("homeSection").style.display = "none";
+          document.getElementById("quizContainer").style.display = "block";
+        } else {
+          alert("Please enter your name before starting the quiz.");
+        }
+      });
+
+      document.getElementById("exit-btn").addEventListener("click", function () {
+        document.getElementById("quizContainer").style.display = "none";
+        document.getElementById("homeSection").style.display = "block";
+      });
+    </script>
 
     <script src="script.js"></script>
   </body>

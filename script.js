@@ -160,3 +160,4 @@ document.getElementById("exit-btn").addEventListener("click", function () {
 if (window.location.pathname.includes("quiz.html")) {
   loadQuestion();
 }
+

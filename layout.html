@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: "Serif", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #000000; 
+        color: #ffffff; 
+        line-height: 1.6;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      header {
+        background-color: #1A1A1A; 
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #D8B7DD;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #ffffff; 
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      nav ul li a:hover {
+        color: #ff6b6b;
+      }
+
+      footer {
+        background-color: #1A1A1A; 
+        color: #ffffff; 
+        text-align: center;
+        padding: 20px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        margin-top: auto;
+      }
+
+      footer a {
+        color: #D8B7DD; 
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      footer a:hover {
+        color: #ff6b6b; 
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header ni-->
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <h1>Quizaro</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="result.html">Results</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Footer ni -->
+    <footer>
+      <p>&copy; 2025 Quizaro. <a href="about.html">Learn more about us</a>.</p>
+    </footer>
+  </body>
+</html>
