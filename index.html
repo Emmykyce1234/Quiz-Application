@@ -4,12 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quizaro - Home</title>
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="font-serif text-purple-300 min-h-screen bg-gray-900 bg-pattern flex flex-col">
+  <body
+    class="font-serif text-purple-300 min-h-screen bg-gray-900 flex flex-col"
+  >
+    <ul class="squares">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
     <div id="layout-placeholder"></div>
 
-    <main class="flex-1 p-10 max-w-2xl mx-auto mt-16">
+    <main class="flex-1 p-10 max-w-2xl mx-auto mt-16 relative z-10">
       <section id="homeSection">
         <h1 class="text-5xl font-bold">Welcome to Quizaro!</h1>
         <h3 class="text-xl mb-6 mt-5">Interactive Quiz App</h3>
@@ -17,31 +33,58 @@
           Test your knowledge on <strong>Basic Programming</strong> with this
           fun and interactive quiz!
         </p>
-        <button class="bg-[#ff6b6b] text-white py-2 px-4 rounded-md text-lg hover:bg-[#ff4c4c] transform transition-all duration-200 ease-in-out hover:scale-105" onclick="redirectToQuiz()">Take a Quiz</button>
+
+        <button
+          class="bg-[#ff6b6b] text-white py-2 px-4 rounded-md text-lg hover:bg-[#ff4c4c] transform transition-all duration-200 ease-in-out hover:scale-105"
+          onclick="redirectToQuiz()"
+        >
+          Take a Quiz
+        </button>
       </section>
     </main>
 
     <script>
-      async function loadLayout() {
-        try {
-          const response = await fetch("layout.html");
-          const text = await response.text(); 
-          document.getElementById("layout-placeholder").innerHTML = text;
-        } catch (error) {
-          console.error("Error loading layout:", error);
-        }
-      }
-
-      loadLayout();
-
       function redirectToQuiz() {
+        console.log("Button clicked! Redirecting to quiz.html...");
         window.location.href = "quiz.html";
       }
 
-      function showHome() {
-        document.getElementById("homeSection").classList.remove("hidden");
-        document.getElementById("quizSection").classList.add("hidden");
-      }
+      document.addEventListener("DOMContentLoaded", function () {
+        async function loadLayout() {
+          try {
+            console.log("Loading layout...");
+            const response = await fetch("layout.html");
+            if (!response.ok) {
+              throw new Error(
+                `Failed to load layout: ${response.status} ${response.statusText}`
+              );
+            }
+            const text = await response.text();
+            console.log("Layout loaded successfully:", text);
+            document.getElementById("layout-placeholder").innerHTML = text;
+          } catch (error) {
+            console.error("Error loading layout:", error);
+            document.getElementById("layout-placeholder").innerHTML = `
+              <header class="bg-gray-800 p-4 text-white">
+                <nav class="container mx-auto flex justify-between items-center">
+                  <a href="index.html" class="text-2xl font-bold">Quizaro</a>
+                  <ul class="flex space-x-6">
+                    <li><a href="index.html" class="hover:text-purple-300">Home</a></li>
+                    <li><a href="quiz.html" class="hover:text-purple-300">Quiz</a></li>
+                    <li><a href="about.html" class="hover:text-purple-300">About</a></li>
+                    <li><a href="result.html" class="hover:text-purple-300">Results</a></li>
+                  </ul>
+                </nav>
+              </header>
+              <footer class="bg-gray-800 text-white text-center p-5 fixed bottom-0 w-full">
+                <p>&copy; 2025 Quizaro. <a href="about.html" class="text-purple-300 hover:text-purple-400">Learn more about us</a>.</p>
+              </footer>
+            `;
+          }
+        }
+
+        loadLayout();
+      });
     </script>
   </body>
 </html>

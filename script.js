@@ -2,66 +2,71 @@ const quizData = [
   {
     question: "What does HTML stand for?",
     options: [
-      "Hyper Transfer Markup Language",
-      "HyperText Markup Language",
-      "HighText Machine Language",
-      "Hyperlink Text Markup Language",
+      "a. Hyper Transfer Markup Language",
+      "b. HyperText Markup Language",
+      "c. HighText Machine Language",
+      "d. Hyperlink Text Markup Language",
     ],
-    answer: "HyperText Markup Language",
+    answer: "b. HyperText Markup Language",
   },
   {
     question: "Which of the following is a JavaScript framework?",
-    options: ["Laravel", "Django", "React", "Angular"],
-    answer: "React",
+    options: ["a. Laravel", "b. Django", "c. React", "d. Angular"],
+    answer: "c. React",
   },
   {
     question:
       "What is the correct syntax to output 'Hello, World!' in JavaScript?",
-    options: ["print()", "console.log()", "echo", "document.write()"],
-    answer: "console.log()",
+    options: [
+      "a. print()",
+      "b. console.log()",
+      "c. echo",
+      "d. document.write()",
+    ],
+    answer: "b. console.log()",
   },
   {
     question: "Which is NOT a programming language?",
-    options: ["Python", "Java", "HTML", "C++"],
-    answer: "HTML",
+    options: ["a. Python", "b. Java", "c. HTML", "d. C++"],
+    answer: "c. HTML",
   },
   {
     question: "What does CSS stand for?",
     options: [
-      "Creative Style Sheets",
-      "Cascading Style Sheets",
-      "Computer Styling System",
-      "Colorful Style Syntax",
+      "a. Creative Style Sheets",
+      "b. Cascading Style Sheets",
+      "c. Computer Styling System",
+      "d. Colorful Style Syntax",
     ],
-    answer: "Cascading Style Sheets",
+    answer: "b. Cascading Style Sheets",
   },
-
   {
     question: "Which property is used to make text bold in CSS?",
-    options: ["text-weight", "font-style", "font-weight", "bold"],
-    answer: "font-weight",
+    options: ["a. text-weight", "b. font-style", "c. font-weight", "d. bold"],
+    answer: "c. font-weight",
   },
   {
-    question: "Which attribute is used to specify that an input field must be filled out before submitting the form?",
-    options: ["validate", "required", "mandatory", "mustfill"],
-    answer: "required",
+    question:
+      "Which attribute is used to specify that an input field must be filled out before submitting the form?",
+    options: ["a. validate", "b. required", "c. mandatory", "d. mustfill"],
+    answer: "b. required",
   },
   {
     question: "Which keyword is used to declare a function in JavaScript?",
-    options: ["func", "function", "def", "declare"],
-    answer: "function",
+    options: ["a. func", "b. function", "c. def", "d. declare"],
+    answer: "b. function",
   },
   {
     question:
       "Which symbol is used for strict equality comparison in JavaScript?",
-    options: ["==", "===", "!=", "="],
-    answer: "===",
+    options: ["a. ==", "b. ===", "c. !=", "d. ="],
+    answer: "b. ===",
   },
   {
     question:
       "Which CSS property is used to set the background color of an element?",
-    options: ["color", "background-color", "bgcolor", "background"],
-    answer: "background-color",
+    options: ["a. color", "b. background-color", "c. bgcolor", "d. background"],
+    answer: "b. background-color",
   },
 ];
 
@@ -160,4 +165,3 @@ document.getElementById("exit-btn").addEventListener("click", function () {
 if (window.location.pathname.includes("quiz.html")) {
   loadQuestion();
 }
-

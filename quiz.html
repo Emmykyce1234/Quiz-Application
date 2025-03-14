@@ -3,14 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quizaro</title>
+    <title>Quizaro - Quiz</title>
+    <link rel="stylesheet" href="styles.css" />
     <style>
       body {
         font-family: "Serif", sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #faf5f5;
-        color: #000000;
+        background-color: #282857;
+        color: #ffffff;
         line-height: 1.6;
         text-align: center;
         height: 100%;
@@ -22,13 +23,13 @@
       h1 {
         font-size: 3rem !important;
         margin-bottom: 20px !important;
-        color: black !important;
+        color: #ffffff !important;
       }
 
       h2 {
         font-size: 1.5rem !important;
         margin-bottom: 20px !important;
-        color: black !important;
+        color: #ffffff !important;
       }
 
       #nameform {
@@ -36,37 +37,46 @@
         flex-direction: column;
         align-items: center;
         gap: 15px;
+        margin-top: 80px;
       }
 
       #nameform input {
         padding: 15px;
-        border: 2px solid #000000;
+        border: 2px solid #7575f1;
         border-radius: 8px;
         font-size: 1.2rem;
         width: 100%;
         max-width: 350px;
         outline: none;
-      }
-
-      #nameform input:focus {
-        border-color: #ff6b6b;
-      }
-
-      .btn-primary {
-        background-color: #ff6b6b;
+        background-color: #3c3c9b;
         color: #ffffff;
       }
 
+      #nameform input:focus {
+        border-color: #a1b0fa;
+      }
+
+      .btn-primary {
+        background-color: #6833f9;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
       .btn-primary:hover {
-        background-color: #ff4c4c;
+        background-color: #8067c9;
         transform: scale(1.05);
       }
 
       #exit-btn {
-        position: absolute;
-        top: 16px;
+        position: fixed;
+        top: 20px;
         right: 20px;
-        background-color: #ff6b6b;
+        background-color: #8067c9;
         color: white;
         padding: 8px 16px;
         border-radius: 20px;
@@ -74,10 +84,11 @@
         border: none;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        z-index: 1000;
       }
 
       #exit-btn:hover {
-        background-color: #771414;
+        background-color: #a34cff;
       }
 
       .quiz-container {
@@ -85,49 +96,124 @@
         margin-top: 80px;
         margin-bottom: 80px;
         padding: 20px;
+        background-color: #20203c;
+        color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      #progress {
+        color: #a0a0a0;
+      }
+
+      #next-btn {
+        background-color: #1e13ed;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      #next-btn:hover {
+        background-color: #a34cff;
+      }
+
+      #options-container {
+        margin-top: 20px;
+      }
+
+      #options-container button {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        color: #ffffff;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        width: 100%;
+        max-width: 300px;
+        text-align: left;
+      }
+
+      #options-container button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: scale(1.05);
+      }
+
+      #options-container button:focus {
+        outline: none;
+        border-color: #a1b0fa;
       }
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-gray-300 flex justify-center items-center min-h-screen">
-    <header>
-      <button id="exit-btn">Exit Quiz</button>
-    </header>
+  <body class="flex justify-center items-center min-h-screen">
+    <ul class="squares">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+    <button id="exit-btn">Exit Quiz</button>
 
     <section id="homeSection">
       <h1>Quizaro</h1>
       <h2>Basic Programming Quiz</h2>
       <form id="nameform">
         <input type="text" id="name" placeholder="Enter your name to start" />
-        <button type="submit" class="btn-primary px-4 py-2 rounded-md">Start Quiz</button>
+        <button type="submit" class="btn-primary">Start Quiz</button>
       </form>
     </section>
 
-    <div id="quizContainer" class="quiz-container max-w-lg bg-white p-6 shadow-lg rounded-lg text-center">
-      <h1 class="text-3xl font-bold mb-4">Basic Programming Quiz</h1>
-      <p id="progress" class="text-gray-500">Question <span id="current-question">1</span> of 10</p>
+    <div
+      id="quizContainer"
+      class="quiz-container max-w-lg p-6 shadow-lg rounded-lg text-center"
+    >
+      <h2 class="text-3xl font-bold mb-4">Basic Programming Quiz</h2>
+      <p id="progress" class="text-gray-300">
+        Question <span id="current-question">1</span> of 10
+      </p>
       <p id="question-text" class="text-lg font-semibold mt-4">Loading...</p>
       <div id="options-container" class="mt-4 space-y-3"></div>
-      <button id="next-btn" class="mt-6 bg-blue-500 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-blue-600 hidden">Next Question</button>
+      <button
+        id="next-btn"
+        class="mt-6 px-6 py-3 rounded-lg text-lg shadow-md hidden"
+      >
+        Next Question
+      </button>
     </div>
 
     <script>
-      document.getElementById("nameform").addEventListener("submit", function (event) {
-        event.preventDefault();
-        const name = document.getElementById("name").value.trim();
-        if (name) {
-          localStorage.setItem("username", name);
-          document.getElementById("homeSection").style.display = "none";
-          document.getElementById("quizContainer").style.display = "block";
-        } else {
-          alert("Please enter your name before starting the quiz.");
-        }
-      });
+      document
+        .getElementById("nameform")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const name = document.getElementById("name").value.trim();
+          if (name) {
+            localStorage.setItem("username", name);
+            document.getElementById("homeSection").style.display = "none";
+            document.getElementById("quizContainer").style.display = "block";
+          } else {
+            alert("Please enter your name before starting the quiz.");
+          }
+        });
 
-      document.getElementById("exit-btn").addEventListener("click", function () {
-        document.getElementById("quizContainer").style.display = "none";
-        document.getElementById("homeSection").style.display = "block";
-      });
+      document
+        .getElementById("exit-btn")
+        .addEventListener("click", function () {
+          document.getElementById("quizContainer").style.display = "none";
+          document.getElementById("homeSection").style.display = "block";
+        });
     </script>
 
     <script src="script.js"></script>

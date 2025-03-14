@@ -4,17 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz Results</title>
+    <link rel="stylesheet" href="styles.css" />
+
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="font-serif text-purple-300 min-h-screen bg-gray-900 bg-pattern flex flex-col">
+  <body
+    class="font-serif text-purple-300 min-h-screen bg-gray-900 flex flex-col"
+  >
+    <ul class="squares">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+    <!-- Navigation placeholder -->
     <div id="layout-placeholder"></div>
 
-    <main class="flex justify-center items-start mt-10 w-full px-4">
-
+    <main
+      class="flex justify-center items-start mt-10 w-full px-4 relative z-10"
+    >
       <!-- Floating Review-->
-      <div id="review-container" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-96 max-h-[400px] overflow-y-auto relative">
-          <button id="close-review" class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl">✖</button>
+      <div
+        id="review-container"
+        class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+      >
+        <div
+          class="bg-white p-6 rounded-lg shadow-lg w-96 max-h-[400px] overflow-y-auto relative"
+        >
+          <button
+            id="close-review"
+            class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
+          >
+            ✖
+          </button>
           <h2 class="text-xl font-bold mb-3">Review Your Answers</h2>
           <ul id="review-list" class="space-y-2"></ul>
         </div>
@@ -32,30 +61,48 @@
           </p>
 
           <!-- Leaderboard-->
-          <div id="leaderboard-container" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-96 max-h-[400px] overflow-y-auto relative">
-              <button id="close-leaderboard" class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl">✖</button>
+          <div
+            id="leaderboard-container"
+            class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          >
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg w-96 max-h-[400px] overflow-y-auto relative"
+            >
+              <button
+                id="close-leaderboard"
+                class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
+              >
+                ✖
+              </button>
               <h2 class="text-xl font-bold mb-3">Leaderboard</h2>
               <ul id="leaderboard" class="space-y-2"></ul>
-              <button id="clear-leaderboard-btn"
-                class="mt-6 bg-red-500 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-red-600">
+              <button
+                id="clear-leaderboard-btn"
+                class="mt-6 bg-red-500 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-red-600"
+              >
                 Clear Leaderboard
               </button>
             </div>
           </div>
 
-          <button id="review-btn"
-            class="mt-6 bg-green-500 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-green-600">
+          <button
+            id="review-btn"
+            class="mt-6 bg-green-500 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-green-600"
+          >
             Review Answers
           </button>
 
-          <button id="leaderboard-btn"
-            class="mt-6 bg-yellow-500 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-yellow-600">
+          <button
+            id="leaderboard-btn"
+            class="mt-6 bg-yellow-500 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-yellow-600"
+          >
             View Leaderboard
           </button>
 
-          <a href="quiz.html"
-            class="mt-6 inline-block bg-blue-500 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-blue-600">
+          <a
+            href="quiz.html"
+            class="mt-6 inline-block bg-blue-500 text-white px-6 py-3 rounded-lg text-lg shadow-md hover:bg-blue-600"
+          >
             Try Again
           </a>
         </div>
@@ -65,9 +112,9 @@
     <script>
       async function loadLayout() {
         try {
-          const response = await fetch("layout.html"); 
-          const text = await response.text(); 
-          document.getElementById("layout-placeholder").innerHTML = text; 
+          const response = await fetch("layout.html");
+          const text = await response.text();
+          document.getElementById("layout-placeholder").innerHTML = text;
         } catch (error) {
           console.error("Error loading layout:", error);
         }
@@ -89,10 +136,12 @@
         localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
 
         const leaderboardList = document.getElementById("leaderboard");
-        const clearLeaderboardBtn = document.getElementById("clear-leaderboard-btn");
+        const clearLeaderboardBtn = document.getElementById(
+          "clear-leaderboard-btn"
+        );
 
         if (leaderboard.length > 0) {
-          clearLeaderboardBtn.classList.remove("hidden"); 
+          clearLeaderboardBtn.classList.remove("hidden");
         }
 
         leaderboardList.innerHTML = "";
@@ -103,49 +152,62 @@
           leaderboardList.appendChild(li);
         });
 
-        
         const reviewContainer = document.getElementById("review-container");
         const reviewList = document.getElementById("review-list");
 
-        document.getElementById("review-btn").addEventListener("click", function () {
-          reviewContainer.classList.remove("hidden"); 
-          reviewList.innerHTML = ""; 
+        document
+          .getElementById("review-btn")
+          .addEventListener("click", function () {
+            reviewContainer.classList.remove("hidden");
+            reviewList.innerHTML = "";
 
-          reviewData.forEach((item, index) => {
-            const li = document.createElement("li");
-            li.innerHTML = `<strong>Q${index + 1}:</strong> ${item.question} <br>
+            reviewData.forEach((item, index) => {
+              const li = document.createElement("li");
+              li.innerHTML = `<strong>Q${index + 1}:</strong> ${
+                item.question
+              } <br>
                             <span class="text-gray-500">Your Answer: <span class="${
                               item.correct ? "text-green-500" : "text-red-500"
                             }">${item.selected}</span></span> <br>
-                            <span class="text-blue-500">Correct Answer: ${item.correctAnswer}</span>`;
-            li.classList.add("bg-gray-100", "p-2", "rounded");
-            reviewList.appendChild(li);
+                            <span class="text-blue-500">Correct Answer: ${
+                              item.correctAnswer
+                            }</span>`;
+              li.classList.add("bg-gray-100", "p-2", "rounded");
+              reviewList.appendChild(li);
+            });
           });
-        });
 
-    
-        document.getElementById("close-review").addEventListener("click", function () {
-          reviewContainer.classList.add("hidden");
-        });
+        document
+          .getElementById("close-review")
+          .addEventListener("click", function () {
+            reviewContainer.classList.add("hidden");
+          });
 
-       
-        document.getElementById("leaderboard-btn").addEventListener("click", function () {
-          document.getElementById("leaderboard-container").classList.remove("hidden");
-        });
+        document
+          .getElementById("leaderboard-btn")
+          .addEventListener("click", function () {
+            document
+              .getElementById("leaderboard-container")
+              .classList.remove("hidden");
+          });
 
-        
-        document.getElementById("close-leaderboard").addEventListener("click", function () {
-          document.getElementById("leaderboard-container").classList.add("hidden");
-        });
+        document
+          .getElementById("close-leaderboard")
+          .addEventListener("click", function () {
+            document
+              .getElementById("leaderboard-container")
+              .classList.add("hidden");
+          });
 
-       
-        document.getElementById("clear-leaderboard-btn").addEventListener("click", function () {
-          if (confirm("Are you sure you want to clear the leaderboard?")) {
-            localStorage.removeItem("leaderboard"); 
-            document.getElementById("leaderboard").innerHTML = "";
-            alert("Leaderboard cleared!");
-          }
-        });
+        document
+          .getElementById("clear-leaderboard-btn")
+          .addEventListener("click", function () {
+            if (confirm("Are you sure you want to clear the leaderboard?")) {
+              localStorage.removeItem("leaderboard");
+              document.getElementById("leaderboard").innerHTML = "";
+              alert("Leaderboard cleared!");
+            }
+          });
       });
     </script>
   </body>

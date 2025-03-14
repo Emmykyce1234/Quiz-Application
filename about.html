@@ -4,32 +4,79 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quizaro - About</title>
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="font-serif text-purple-300 min-h-screen bg-gray-900 bg-pattern flex flex-col">
+  <body
+    class="font-serif text-purple-300 min-h-screen bg-gray-900 flex flex-col"
+  >
+    <ul class="squares">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
     <div id="layout-placeholder"></div>
 
-    <main class="flex-1 p-10 max-w-3xl mx-auto">
+    <main class="flex-1 p-10 max-w-3xl mx-auto relative z-10">
       <section class="about-section mb-12">
-        <h2 class="text-3xl font-semibold text-black mb-4">About the Creator</h2>
+        <h2 class="text-3xl font-semibold text-white mb-4">
+          About the Creator
+        </h2>
       </section>
 
       <section class="connect-section mb-12">
-        <h3 class="text-2xl font-semibold text-black mb-4">Connect with Me</h3>
+        <h3 class="text-2xl font-semibold text-white mb-4">Connect with Me</h3>
         <ul class="flex justify-center gap-8">
           <li>
-            <a href="https://github.com/Glaizale" target="_blank" class="text-gray-800 font-bold hover:text-red-500 transition duration-300">GitHub</a>
+            <a
+              href="https://github.com/Glaizale"
+              target="_blank"
+              class="text-white font-bold hover:text-red-500 transition duration-300"
+              >GitHub</a
+            >
           </li>
         </ul>
       </section>
 
       <section class="contact-section mb-12">
-        <h3 class="text-2xl font-semibold text-black mb-4">Contact Us</h3>
+        <h3 class="text-2xl font-semibold text-white mb-4">Contact Us</h3>
         <form id="contactForm" class="flex flex-col items-center gap-6">
-          <input type="text" id="name" name="name" placeholder="Name" required class="border-2 border-black p-3 rounded-md w-64 text-center focus:outline-none focus:ring-2 focus:ring-red-500" />
-          <input type="email" id="email" name="email" placeholder="Email" required class="border-2 border-black p-3 rounded-md w-64 text-center focus:outline-none focus:ring-2 focus:ring-red-500" />
-          <textarea id="message" name="message" rows="4" placeholder="Message" required class="border-2 border-black p-3 rounded-md w-64 text-center focus:outline-none focus:ring-2 focus:ring-red-500"></textarea>
-          <button type="submit" class="bg-red-500 text-white py-2 px-6 rounded-md font-semibold hover:bg-red-400 transform transition duration-300 hover:scale-105">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Name"
+            required
+            class="border-2 border-white p-3 rounded-md w-64 text-center focus:outline-none focus:ring-2 focus:ring-red-500 bg-transparent text-white"
+          />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            required
+            class="border-2 border-white p-3 rounded-md w-64 text-center focus:outline-none focus:ring-2 focus:ring-red-500 bg-transparent text-white"
+          />
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Message"
+            required
+            class="border-2 border-white p-3 rounded-md w-64 text-center focus:outline-none focus:ring-2 focus:ring-red-500 bg-transparent text-white"
+          ></textarea>
+          <button
+            type="submit"
+            class="bg-red-500 text-white py-2 px-6 rounded-md font-semibold hover:bg-red-400 transform transition duration-300 hover:scale-105"
+          >
             Send Message
           </button>
         </form>
@@ -49,11 +96,13 @@
 
       loadLayout();
 
-      document.getElementById("contactForm").addEventListener("submit", function (event) {
-        event.preventDefault();
-        alert("Thank you for your message! We will get back to you soon.");
-        document.getElementById("contactForm").reset();
-      });
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          alert("Thank you for your message! We will get back to you soon.");
+          document.getElementById("contactForm").reset();
+        });
     </script>
   </body>
 </html>
