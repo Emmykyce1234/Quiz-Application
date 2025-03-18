@@ -125,10 +125,6 @@ function selectAnswer(selectedOption) {
     correct: selectedOption === correctAnswer,
   };
 
-  document.querySelectorAll("#options-container button").forEach((btn) => {
-    btn.classList.remove("bg-purple-500", "text-white", "hover:bg-gray-300");
-  });
-
   const selectedButton = Array.from(
     document.querySelectorAll("#options-container button")
   ).find((btn) => btn.textContent === selectedOption);
@@ -164,4 +160,15 @@ document.getElementById("exit-btn").addEventListener("click", function () {
 
 if (window.location.pathname.includes("quiz.html")) {
   loadQuestion();
+}
+
+
+function confirmQuizStart() {
+  const confirmStart = confirm(
+    "If you take this quiz, your score will be counted even if you exit. Do you wish to proceed?"
+  );
+
+  if (confirmStart) {
+    window.location.href = "quiz.html"; 
+  }
 }

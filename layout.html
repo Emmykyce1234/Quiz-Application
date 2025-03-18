@@ -3,107 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      body {
-        font-family: "Serif", sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #1a1a32;
-        color: #ffffff;
-        line-height: 1.6;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-
-      header {
-        background-color: #1a1a1a;
-        padding: 15px;
-        box-shadow: 0 2px 4px #282857(0, 0, 0, 0.1);
-      }
-
-      .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .logo h1 {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #f9f5fa;
-      }
-
-      nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        gap: 20px;
-      }
-
-      nav ul li a {
-        text-decoration: none;
-        color: #ffffff;
-        font-weight: bold;
-        transition: color 0.3s ease;
-      }
-
-      nav ul li a:hover {
-        color: #f8f5f5;
-      }
-
-      footer {
-        background-color: #1a1a1a;
-        color: #ffffff;
-        text-align: center;
-        padding: 20px 0;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        margin-top: auto;
-      }
-
-      footer a {
-        color: #d8b7dd;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      footer a:hover {
-        color: #f2eeee;
-      }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
-  <body>
-    <!-- Header ni-->
-    <header class="bg-gray-800 p-4 text-white">
-      <nav class="container mx-auto flex justify-between items-center">
-        <a href="index.html" class="text-2xl font-bold">Quizaro</a>
-        <ul class="flex space-x-6">
-          <li><a href="index.html" class="hover:text-purple-300">Home</a></li>
-          <li><a href="quiz.html" class="hover:text-purple-300">Quiz</a></li>
-          <li><a href="about.html" class="hover:text-purple-300">About</a></li>
-          <li>
-            <a href="result.html" class="hover:text-purple-300">Results</a>
-          </li>
-        </ul>
-      </nav>
+  <body class="font-serif text-purple-300 min-h-screen bg-gray-900 flex flex-col ">
+   
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <a href="index.html" class="text-2xl font-bold">Quizaro</a>
+        </div>
+        <nav>
+          <ul class="flex space-x-6">
+            <li><a href="index.html" class="hover:text-purple-300">Home</a></li>
+            <li>
+              <a href="#" onclick="confirmQuizStart()" class="hover:text-purple-300">Quiz</a>
+            </li>
+            <li><a href="result.html" class="hover:text-purple-300">Results</a></li>
+            <li><a href="about.html" class="hover:text-purple-300">About</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <!-- Footer ni -->
-    <footer
-      class="bg-gray-800 text-white text-center p-5 fixed bottom-0 w-full"
-    >
-      <p>
-        &copy; 2025 Quizaro.
-        <a href="about.html" class="text-purple-300 hover:text-purple-400"
-          >Learn more about us</a
-        >.
-      </p>
+   
+    <footer>
+      <p>&copy; 2025 Quizaro. <a href="about.html" class="text-purple-300 hover:text-purple-400"
+        >Learn more about us</a>
     </footer>
+
+    
+    
   </body>
 </html>
