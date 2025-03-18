@@ -37,11 +37,11 @@
         class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
       >
         <div
-          class="bg-white p-6 rounded-lg shadow-lg w-96 max-h-[400px] overflow-y-auto relative"
+          class="bg-gray-900 text-purple-300 p-6 rounded-lg shadow-lg w-96 max-h-[400px] overflow-y-auto relative"
         >
           <button
             id="close-review"
-            class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
+            class="absolute top-2 right-2 text-purple-300 hover:text-red-500 text-xl"
           >
             ✖
           </button>
@@ -52,7 +52,9 @@
 
       <!-- Results -->
       <div class="w-3/4 flex justify-center">
-        <div class="max-w-lg bg-white p-6 shadow-lg rounded-lg text-center">
+        <div
+          class="max-w-lg bg-gray-900 text-purple-300 p-6 shadow-lg rounded-lg text-center"
+        >
           <h1 class="text-3xl font-bold mb-4">Quiz Results</h1>
           <p class="text-lg font-semibold">
             Well done, <span id="player-name"></span>!
@@ -67,11 +69,11 @@
             class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
           >
             <div
-              class="bg-white p-6 rounded-lg shadow-lg w-96 max-h-[400px] overflow-y-auto relative"
+              class="bg-gray-900 text-purple-300 p-6 rounded-lg shadow-lg w-96 max-h-[400px] overflow-y-auto relative"
             >
               <button
                 id="close-leaderboard"
-                class="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
+                class="absolute top-2 right-2 text-purple-300 hover:text-red-500 text-xl"
               >
                 ✖
               </button>
@@ -149,7 +151,7 @@
         leaderboard.forEach((entry) => {
           const li = document.createElement("li");
           li.textContent = `${entry.name}: ${entry.score}/10`;
-          li.classList.add("bg-gray-200", "p-2", "rounded");
+          li.classList.add("bg-gray-800", "p-2", "rounded");
           leaderboardList.appendChild(li);
         });
 
@@ -173,7 +175,7 @@
                             <span class="text-blue-500">Correct Answer: ${
                               item.correctAnswer
                             }</span>`;
-              li.classList.add("bg-gray-100", "p-2", "rounded");
+              li.classList.add("bg-gray-800", "p-2", "rounded");
               reviewList.appendChild(li);
             });
           });

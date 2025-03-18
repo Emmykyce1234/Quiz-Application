@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-y: auto;
-overflow-x: hidden;
+  overflow-x: hidden;
   position: relative;
   background-color: #1a1a2e;
   color: #ffffff;
@@ -125,7 +125,7 @@ overflow-x: hidden;
 }
 
 header {
-  background-color: #1A1A1A; 
+  background-color: #1a1a1a;
   padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -142,22 +142,21 @@ header {
 
 nav ul {
   list-style: none;
- 
-  
+
   display: flex;
   gap: 20px;
 }
 
 nav ul li a {
   text-decoration: none;
-  color: #ffffff; 
+  color: #ffffff;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 footer {
-  background-color: #1A1A1A; 
-  color: #ffffff; 
+  background-color: #1a1a1a;
+  color: #ffffff;
   text-align: center;
   padding: 20px 0;
   position: fixed;
@@ -168,13 +167,13 @@ footer {
 }
 
 footer a {
-  color: #d8b7dd; 
+  color: #d8b7dd;
   text-decoration: none;
   font-weight: bold;
 }
 
 footer a:hover {
-  color: #f2eeee; 
+  color: #f2eeee;
 }
 
 #nameform {

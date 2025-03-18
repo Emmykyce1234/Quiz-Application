@@ -162,13 +162,12 @@ if (window.location.pathname.includes("quiz.html")) {
   loadQuestion();
 }
 
-
 function confirmQuizStart() {
   const confirmStart = confirm(
     "If you take this quiz, your score will be counted even if you exit. Do you wish to proceed?"
   );
 
   if (confirmStart) {
-    window.location.href = "quiz.html"; 
+    window.location.href = "quiz.html";
   }
 }
