@@ -19,8 +19,11 @@
 
       header {
         background-color: #1a1a1a;
-        padding: 15px;
-        box-shadow: 0 2px 4px #282857(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
       }
 
       .navbar {
@@ -29,12 +32,15 @@
         align-items: center;
         max-width: 1200px;
         margin: 0 auto;
+        padding: 0 20px;
       }
 
       .logo h1 {
         font-size: 1.5rem;
         font-weight: bold;
-        color: #f9f5fa;
+        color: #a34cff;
+        margin: 0;
+        text-transform: uppercase;
       }
 
       nav ul {
@@ -42,25 +48,31 @@
         padding: 0;
         margin: 0;
         display: flex;
-        gap: 20px;
+        gap: 15px;
+        align-items: center;
+      }
+
+      nav ul li {
+        display: inline-block;
       }
 
       nav ul li a {
         text-decoration: none;
         color: #ffffff;
         font-weight: bold;
+        font-size: 1rem;
         transition: color 0.3s ease;
       }
 
       nav ul li a:hover {
-        color: #f8f5f5;
+        color: #d8b7dd;
       }
 
       footer {
         background-color: #1a1a1a;
         color: #ffffff;
         text-align: center;
-        padding: 20px 0;
+        padding: 10px 0;
         position: fixed;
         bottom: 0;
         width: 100%;
@@ -76,33 +88,70 @@
       footer a:hover {
         color: #f2eeee;
       }
+
+      /* Responsiveness */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 8px;
+        }
+
+        .logo h1 {
+          font-size: 1.25rem;
+        }
+
+        nav ul {
+          gap: 10px;
+        }
+
+        nav ul li a {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .navbar {
+          flex-direction: row;
+          align-items: center;
+          padding: 6px;
+        }
+
+        .logo h1 {
+          font-size: 1rem;
+        }
+
+        nav ul {
+          gap: 8px;
+        }
+
+        nav ul li a {
+          font-size: 0.8rem;
+        }
+      }
     </style>
   </head>
   <body>
-    <!-- Header ni-->
-    <header class="bg-gray-800 p-4 text-white">
-      <nav class="container mx-auto flex justify-between items-center">
-        <a href="index.html" class="text-2xl font-bold">Quizaro</a>
-        <ul class="flex space-x-6">
-          <li><a href="index.html" class="hover:text-purple-300">Home</a></li>
-          <li><a href="quiz.html" class="hover:text-purple-300">Quiz</a></li>
-          <li><a href="about.html" class="hover:text-purple-300">About</a></li>
-          <li>
-            <a href="result.html" class="hover:text-purple-300">Results</a>
-          </li>
+    <!-- Header -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <h1>QUIZARO</h1>
+        </div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="result.html">Results</a></li>
         </ul>
       </nav>
     </header>
 
-    <!-- Footer ni -->
-    <footer
-      class="bg-gray-800 text-white text-center p-5 fixed bottom-0 w-full"
-    >
+    <!-- Footer -->
+    <footer>
       <p>
         &copy; 2025 Quizaro.
-        <a href="about.html" class="text-purple-300 hover:text-purple-400"
-          >Learn more about us</a
-        >.
+        <a href="about.html">Learn more about us</a>.
       </p>
     </footer>
   </body>
