@@ -267,3 +267,46 @@ footer a:hover {
 #next-btn:hover {
   background-color: #a34cff;
 }
+
+ /* Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo h1 {
+    font-size: 1.15rem;
+  }
+
+  nav ul {
+    gap: 2px;
+  }
+
+  nav ul li a {
+    font-size: 0.85rem;
+    
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 10px;
+    gap: 8px;
+  }
+
+  .logo h1 {
+    font-size: 0.95rem;
+  }
+
+  nav ul {
+    gap: 1px;
+  }
+
+  nav ul li a {
+    font-size: 0.75rem;
+  }
+}

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizaro - About</title>
-    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
   </head>
-  <body
-    class="font-serif text-gray-300 bg-gray-900 min-h-screen flex flex-col relative"
-  >
+  <body class="font-serif min-h-screen bg-gray-900 flex flex-col relative opacity-0 transition-opacity duration-500 ease-in-out" onload="fadeInPage()">
+    
+   
     <ul class="squares">
       <li></li>
       <li></li>
@@ -24,129 +24,68 @@
       <li></li>
     </ul>
 
+    
     <div id="layout-placeholder"></div>
 
     <main class="flex-1 p-10 max-w-3xl mx-auto relative z-10">
-      <section class="mb-20 text-center">
-        <h1
-          class="text-5xl font-bold text-purple-400 drop-shadow-lg mb-6 tracking-wide"
-        >
-          About Quizaro
-        </h1>
-
-        <p
-          class="text-lg leading-relaxed text-gray-400 max-w-3xl mx-auto mb-20"
-        >
-          Quizaro was created with one goal: to make learning engaging,
-          interactive, and fun. Whether you're a beginner just stepping into the
-          coding world or a seasoned developer refining your skills, Quizaro
-          challenges you to grow, think, and excel. Learning should never feel
-          like a chore, and with Quizaro, every question is an opportunity to
-          test your knowledge, reinforce concepts, and push your limits in a
-          dynamic and enjoyable way.
-          <br /><br />
-          Our carefully curated questions are designed to spark curiosity,
-          strengthen problem-solving skills, and help learners gain confidence
-          in their abilities.No matter your skill level, this platform is your
-          gateway to continuous improvement and success.
-
-          <br /><br />
-
-          Every question you answer is a step forward. So, dive in, challenge
-          yourself, and keep learning. The journey of growth never stops, and
-          neither should you.
+      
+      <!-- About Section -->
+      <section class="mb-16 px-4 text-center">
+        <h1 class="text-4xl sm:text-5xl font-bold text-purple-400 drop-shadow-lg mb-6 tracking-wide">About Quizaro</h1>
+        <p class="text-base sm:text-lg leading-relaxed text-gray-400 max-w-2xl sm:max-w-3xl mx-auto mb-16 sm:mb-20">
+          Quizaro was created with one goal: to make learning engaging, interactive, and fun.
+          Whether you're a beginner stepping into the coding world or a seasoned developer refining 
+          your skills, Quizaro challenges you to grow, think, and excel. Learning should never feel
+          like a chore, and with Quizaro, every question is an opportunity to test your knowledge, 
+          reinforce concepts, and push your limits in a dynamic and enjoyable way.
+          <br><br>
+          Our carefully curated questions spark curiosity, strengthen problem-solving skills, 
+          and help learners gain confidence in their abilities. No matter your skill level, this 
+          platform is your gateway to continuous improvement and success.
+          <br><br>
+          Every question you answer is a step forward. So, dive in, challenge yourself, and 
+          keep learning. The journey of growth never stops, and neither should you.
         </p>
       </section>
-
+      
       <!-- Meet the Authors -->
-      <section class="mb-12 pt-16">
-        <h3
-          class="text-3xl font-semibold text-white text-center mb-8 tracking-wide"
-        >
-          Meet the Authors
-        </h3>
-        <div class="flex flex-col gap-10">
-          <div
-            class="bg-gray-800 p-6 rounded-xl text-center shadow-lg transform hover:scale-105 transition duration-300"
-          >
-            <h4 class="text-2xl font-bold text-white">Gleslimie Binag</h4>
-            <p class="text-gray-400 text-lg mt-2">
-              A passionate developer and creator of Quizaro, dedicated to making
-              knowledge accessible for all.
-            </p>
+      <section class="mb-12 pt-12 px-4">
+        <h3 class="text-2xl sm:text-3xl font-semibold text-white text-center mb-8 tracking-wide">Meet the Authors</h3>
+        <div class="flex flex-col sm:flex-row gap-6 sm:gap-10 justify-center items-center">
+          
+          <!-- Author 1 -->
+          <div class="bg-gray-800 p-6 rounded-xl text-center shadow-lg transform hover:scale-105 transition duration-300 w-full sm:w-96">
+            <h4 class="text-xl sm:text-2xl font-bold text-white">Gleslimie Binag</h4>
+            <p class="text-gray-400 text-base sm:text-lg mt-2">A passionate developer, dedicated to making knowledge accessible for all.</p>
             <div class="mt-4">
-              <a
-                href="https://github.com/Glaizale"
-                target="_blank"
-                class="text-purple-400 font-bold hover:text-purple-500 transition duration-300"
-              >
-                GitHub →
-              </a>
+              <a href="https://github.com/Glaizale" target="_blank" class="text-purple-400 font-bold hover:text-purple-500 transition duration-300">GitHub →</a>
             </div>
           </div>
 
-          <div
-            class="bg-gray-800 p-6 rounded-xl text-center shadow-lg transform hover:scale-105 transition duration-300"
-          >
-            <h4 class="text-2xl font-bold text-white">Jade Ruby Tito</h4>
-            <p class="text-gray-400 text-lg mt-2">
-              A quiz enthusiast and co-creator of Quizaro, passionate about tech
-              and building immersive learning experiences.
-            </p>
+          <!-- Author 2 -->
+          <div class="bg-gray-800 p-6 rounded-xl text-center shadow-lg transform hover:scale-105 transition duration-300 w-full sm:w-96">
+            <h4 class="text-xl sm:text-2xl font-bold text-white">Jade Ruby Tito</h4>
+            <p class="text-gray-400 text-base sm:text-lg mt-2">A quiz enthusiast, passionate about tech and building immersive learning experiences.</p>
             <div class="mt-4">
-              <a
-                href="https://github.com/Emmykyce1234"
-                target="_blank"
-                class="text-purple-400 font-bold hover:text-purple-500 transition duration-300"
-              >
-                GitHub →
-              </a>
+              <a href="https://github.com/Emmykyce1234" target="_blank" class="text-purple-400 font-bold hover:text-purple-500 transition duration-300">GitHub →</a>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- Contact Section -->
       <section class="mb-12 pt-16">
-        <h3
-          class="text-3xl font-semibold text-white text-center mb-6 tracking-wide"
-        >
-          Contact Us
-        </h3>
+        <h3 class="text-3xl font-semibold text-white text-center mb-6 tracking-wide">Contact Us</h3>
         <form id="contactForm" class="flex flex-col items-center gap-6">
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Your Name"
-            required
-            class="border border-gray-500 p-3 rounded-lg w-72 text-center focus:outline-none focus:ring-2 focus:ring-purple-500 bg-gray-800 text-white placeholder-gray-400"
-          />
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Your Email"
-            required
-            class="border border-gray-500 p-3 rounded-lg w-72 text-center focus:outline-none focus:ring-2 focus:ring-purple-500 bg-gray-800 text-white placeholder-gray-400"
-          />
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            placeholder="Your Message"
-            required
-            class="border border-gray-500 p-3 rounded-lg w-72 text-center focus:outline-none focus:ring-2 focus:ring-purple-500 bg-gray-800 text-white placeholder-gray-400"
-          ></textarea>
-          <button
-            type="submit"
-            class="bg-purple-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-purple-400 transform transition duration-300 hover:scale-105"
-          >
-            Send Message
-          </button>
+          <input type="text" id="name" name="name" placeholder="Your Name" required class="border border-gray-500 p-3 rounded-lg w-72 text-center focus:outline-none focus:ring-2 focus:ring-purple-500 bg-gray-800 text-white placeholder-gray-400">
+          <input type="email" id="email" name="email" placeholder="Your Email" required class="border border-gray-500 p-3 rounded-lg w-72 text-center focus:outline-none focus:ring-2 focus:ring-purple-500 bg-gray-800 text-white placeholder-gray-400">
+          <textarea id="message" name="message" rows="4" placeholder="Your Message" required class="border border-gray-500 p-3 rounded-lg w-72 text-center focus:outline-none focus:ring-2 focus:ring-purple-500 bg-gray-800 text-white placeholder-gray-400"></textarea>
+          <button type="submit" class="bg-purple-500 text-white py-2 px-6 rounded-lg font-semibold hover:bg-purple-400 transform transition duration-300 hover:scale-105">Send Message</button>
         </form>
       </section>
     </main>
 
+   
     <script>
       async function loadLayout() {
         try {
@@ -157,16 +96,13 @@
           console.error("Error loading layout:", error);
         }
       }
-
       loadLayout();
 
-      document
-        .getElementById("contactForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          alert("Thank you for your message! We will get back to you soon.");
-          document.getElementById("contactForm").reset();
-        });
+      document.getElementById("contactForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        alert("Thank you for your message! We will get back to you soon.");
+        document.getElementById("contactForm").reset();
+      });
     </script>
   </body>
 </html>

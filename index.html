@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizaro - Home</title>
-    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .text-white-except-nav {
-        color: white;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
   </head>
-  <body
-    class="font-serif text-white-except-nav min-h-screen bg-gray-900 flex flex-col"
+  
+  <body 
+    class="font-serif text-purple-300 min-h-screen bg-gray-900 flex flex-col opacity-0 transition-opacity duration-500 ease-in-out"
+    onload="fadeInPage()"
   >
+  
     <ul class="squares">
       <li></li>
       <li></li>
@@ -28,68 +28,57 @@
       <li></li>
     </ul>
 
+    
     <div id="layout-placeholder"></div>
 
-    <main class="flex-1 p-10 max-w-2xl mx-auto mt-16 relative z-10">
-      <section id="homeSection">
-        <h4 class="text-5xl font-bold">Welcome to Quizaro!</h4>
-        <h3 class="text-xl mb-6 mt-5">Interactive Quiz App</h3>
-        <p class="text-lg mb-6">
+   
+    <main class="flex-1 p-10 max-w-3xl mx-auto mt-16 relative z-10">
+      <section id="homeSection" class="text-center px-4">
+      
+        <!-- Heading for Welcome Message -->
+        <h1 
+          class="text-5xl sm:text-6xl font-bold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent"
+        >
+          Welcome to Quizaro!
+        </h1>
+      
+        <!-- Subheading for Description -->
+        <h3 class="text-lg sm:text-xl text-gray-300 mb-4 mt-4">
+          Interactive Quiz App
+        </h3>
+      
+        <!-- Description-->
+        <p class="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto">
           Test your knowledge on <strong>Basic Programming</strong> with this
           fun and interactive quiz!
         </p>
 
-        <button
-          class="bg-[#1e13ed] text-white py-2 px-4 rounded-md text-lg hover:bg-[#a34cff] transform transition-all duration-200 ease-in-out hover:scale-105"
+        <!-- Button to Start Quiz -->
+        <button 
+          class="mt-4 sm:mt-6 bg-gradient-to-b from-[#3a2d5a] to-[#221a35] text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg text-base sm:text-lg shadow-lg border border-[#464b63] hover:from-[#6b21a8] hover:to-[#4c1d95] hover:text-black hover:border-[#7e22ce] transition-all w-full sm:w-auto transform hover:scale-105 duration-200 ease-in-out"
           onclick="redirectToQuiz()"
         >
           Take a Quiz
         </button>
+
       </section>
     </main>
 
+   
     <script>
-      function redirectToQuiz() {
-        console.log("Button clicked! Redirecting to quiz.html...");
-        window.location.href = "quiz.html";
+      async function loadLayout() {
+        try {
+          const response = await fetch("layout.html");
+          const text = await response.text();
+          document.getElementById("layout-placeholder").innerHTML = text;
+        } catch (error) {
+          console.error("Error loading layout:", error);
+        }
       }
 
-      document.addEventListener("DOMContentLoaded", function () {
-        async function loadLayout() {
-          try {
-            console.log("Loading layout...");
-            const response = await fetch("layout.html");
-            if (!response.ok) {
-              throw new Error(
-                `Failed to load layout: ${response.status} ${response.statusText}`
-              );
-            }
-            const text = await response.text();
-            console.log("Layout loaded successfully:", text);
-            document.getElementById("layout-placeholder").innerHTML = text;
-          } catch (error) {
-            console.error("Error loading layout:", error);
-            document.getElementById("layout-placeholder").innerHTML = `
-              <header class="bg-gray-800 p-4 text-white">
-                <nav class="container mx-auto flex justify-between items-center">
-                  <a href="index.html" class="text-2xl font-bold text-purple-300">Quizaro</a>
-                  <ul class="flex space-x-6">
-                    <li><a href="index.html" class="hover:text-purple-300">Home</a></li>
-                    <li><a href="quiz.html" class="hover:text-purple-300">Quiz</a></li>
-                    <li><a href="about.html" class="hover:text-purple-300">About</a></li>
-                    <li><a href="result.html" class="hover:text-purple-300">Results</a></li>
-                  </ul>
-                </nav>
-              </header>
-              <footer class="bg-gray-800 text-white text-center p-5 fixed bottom-0 w-full">
-                <p>&copy; 2025 Quizaro. <a href="about.html" class="text-purple-300 hover:text-purple-400">Learn more about us</a>.</p>
-              </footer>
-            `;
-          }
-        }
-
-        loadLayout();
-      });
+      
+      loadLayout();
     </script>
+    
   </body>
 </html>

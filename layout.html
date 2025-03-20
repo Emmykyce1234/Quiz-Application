@@ -1,158 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      body {
-        font-family: "Serif", sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #1a1a32;
-        color: #ffffff;
-        line-height: 1.6;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-
-      header {
-        background-color: #1a1a1a;
-        padding: 10px 20px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      }
-
-      .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-
-      .logo h1 {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #a34cff;
-        margin: 0;
-        text-transform: uppercase;
-      }
-
-      nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        gap: 15px;
-        align-items: center;
-      }
-
-      nav ul li {
-        display: inline-block;
-      }
-
-      nav ul li a {
-        text-decoration: none;
-        color: #ffffff;
-        font-weight: bold;
-        font-size: 1rem;
-        transition: color 0.3s ease;
-      }
-
-      nav ul li a:hover {
-        color: #d8b7dd;
-      }
-
-      footer {
-        background-color: #1a1a1a;
-        color: #ffffff;
-        text-align: center;
-        padding: 10px 0;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        margin-top: auto;
-      }
-
-      footer a {
-        color: #d8b7dd;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      footer a:hover {
-        color: #f2eeee;
-      }
-
-      /* Responsiveness */
-      @media (max-width: 768px) {
-        .navbar {
-          flex-direction: row;
-          justify-content: space-between;
-          padding: 8px;
-        }
-
-        .logo h1 {
-          font-size: 1.25rem;
-        }
-
-        nav ul {
-          gap: 10px;
-        }
-
-        nav ul li a {
-          font-size: 0.9rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .navbar {
-          flex-direction: row;
-          align-items: center;
-          padding: 6px;
-        }
-
-        .logo h1 {
-          font-size: 1rem;
-        }
-
-        nav ul {
-          gap: 8px;
-        }
-
-        nav ul li a {
-          font-size: 0.8rem;
-        }
-      }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
   </head>
-  <body>
-    <!-- Header -->
+  <body class="font-serif min-h-screen bg-gray-900 flex flex-col ">
+   
     <header>
-      <nav class="navbar">
+      <div class="navbar">
         <div class="logo">
-          <h1>QUIZARO</h1>
+          <a href="index.html" class="text-2xl font-bold text-purple-400">Quizaro</a>
         </div>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="quiz.html">Quiz</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="result.html">Results</a></li>
-        </ul>
-      </nav>
+        <nav>
+          <ul class="flex space-x-6">
+            <li><a href="index.html" class="hover:text-purple-300">Home</a></li>
+            <li>
+              <a href="#" onclick="redirectToQuiz()" class="hover:text-purple-300">Quiz</a>
+            </li>
+            <li><a href="result.html" class="hover:text-purple-300">Results</a></li>
+            <li><a href="about.html" class="hover:text-purple-300">About</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <!-- Footer -->
+   
     <footer>
-      <p>
-        &copy; 2025 Quizaro.
-        <a href="about.html">Learn more about us</a>.
-      </p>
+      <p>&copy; 2025 Quizaro. <a href="about.html" class="text-purple-300 hover:text-purple-400"
+        >Learn more about us</a>
     </footer>
+
+    
+    
   </body>
 </html>
+

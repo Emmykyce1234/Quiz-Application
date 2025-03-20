@@ -86,6 +86,7 @@ const nextButton = document.getElementById("next-btn");
 const progress = document.getElementById("current-question");
 
 function loadQuestion() {
+  
   let currentQuestion = selectedQuestions[currentQuestionIndex];
   questionText.textContent = currentQuestion.question;
   optionsContainer.innerHTML = "";
@@ -107,7 +108,7 @@ function loadQuestion() {
     optionsContainer.appendChild(button);
   });
 
-  // Hide next button until answer is surely chosen
+  // Hide next button until answer is chosen
   nextButton.classList.add("hidden");
 }
 
@@ -135,10 +136,6 @@ function selectAnswer(selectedOption) {
 }
 
 nextButton.addEventListener("click", () => {
-  if (!userAnswers[currentQuestionIndex]) {
-    alert("Please select an answer before proceeding.");
-    return;
-  }
   if (currentQuestionIndex < selectedQuestions.length - 1) {
     currentQuestionIndex++;
     loadQuestion();
@@ -153,21 +150,41 @@ nextButton.addEventListener("click", () => {
 });
 
 document.getElementById("exit-btn").addEventListener("click", function () {
-  localStorage.setItem("score", score);
-  localStorage.setItem("reviewData", JSON.stringify(userAnswers));
-  window.location.href = "result.html";
+  const confirmExit = confirm("Are you sure you want to exit?");
+  
+  if (confirmExit) {
+    window.location.href = "index.html";
+  }
 });
 
 if (window.location.pathname.includes("quiz.html")) {
   loadQuestion();
 }
 
-function confirmQuizStart() {
-  const confirmStart = confirm(
-    "If you take this quiz, your score will be counted even if you exit. Do you wish to proceed?"
-  );
 
-  if (confirmStart) {
-    window.location.href = "quiz.html";
-  }
+function redirectToQuiz() {
+  window.location.href = "quiz.html";
 }
+
+function fadeInPage() {
+  document.body.classList.add("opacity-100");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const links = document.querySelectorAll("nav a");
+  
+  links.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      if (!link.href.includes("#")) { 
+        e.preventDefault(); 
+        document.body.classList.add("opacity-0"); 
+
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 300); 
+      }
+    });
+  });
+});
+
+
